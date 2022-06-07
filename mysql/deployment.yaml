@@ -12,6 +12,9 @@ spec:
         app: mysql
     spec:
       containers:
+      #ADICIONAR CONFIGMAP E SECRET
+      #ADICIONAR RESOURCE LIMIT E REQUEST
+      #ADICIONAR VOLUME
         - name: mysql
           image: mysql:8.0
           ports:
