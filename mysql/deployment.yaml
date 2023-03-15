@@ -12,19 +12,12 @@ spec:
         app: mysql
     spec:
       containers:
-      #ADICIONAR CONFIGMAP E SECRET
       #ADICIONAR RESOURCE LIMIT E REQUEST
       #ADICIONAR VOLUME
         - name: mysql
           image: mysql:8.0
           ports:
             - containerPort: 3306
-          env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: pwdrootmysql
-          - name: MYSQL_DATABASE
-            value: db_wordpress
-          - name: MYSQL_USER
-            value: usermysql
-          - name: MYSQL_PASSWORD
-            value: pwdmysql
+          envFrom:
+            - secretRef:
+                name: mysql-secret
