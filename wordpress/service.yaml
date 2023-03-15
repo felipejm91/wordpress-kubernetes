@@ -8,5 +8,5 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-  type: NodePort #para uso com cluster on-premise
-  #type: LoadBalance #para uso com cluster cloud
+  #type: NodePort #para uso com cluster on-premise
+  type: LoadBalancer #para uso com cluster cloud
