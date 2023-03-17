@@ -11,18 +11,18 @@ spec:
       labels:
         app: wordpress
     spec:
+      volumes:
+        - name: vol-wordpress
+          persistentVolumeClaim:
+            claimName: vol-wordpress
       containers:
-        - name: wordpress
-          image: wordpress:6.1.1-php8.0-fpm-alpine
-          resources:
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
-            limits:
-              memory: "512Mi"
-              cpu: "1000m"
-          ports:
-            - containerPort: 80
-          envFrom:
-            - secretRef:
-                name: secret-wordpress
+      - name: wordpress
+        image: wordpress:6.1.1-fpm
+        ports:
+          - containerPort: 80
+        envFrom:
+        - secretRef:
+            name: secret-wordpress
+        volumeMounts:
+          - mountPath: "/var/www/html"
+            name: vol-wordpress

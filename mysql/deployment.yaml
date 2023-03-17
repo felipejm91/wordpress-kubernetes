@@ -11,9 +11,11 @@ spec:
       labels:
         app: mysql
     spec:
+      volumes:
+        - name: vol-mysql
+          persistentVolumeClaim:
+            claimName: vol-wordpress
       containers:
-      #ADICIONAR RESOURCE LIMIT E REQUEST
-      #ADICIONAR VOLUME
         - name: mysql
           image: mysql:8.0
           ports:
@@ -21,3 +23,6 @@ spec:
           envFrom:
             - secretRef:
                 name: mysql-secret
+          volumeMounts:
+            - mountPath: "/var/lib/mysql"
+              name: vol-mysql
