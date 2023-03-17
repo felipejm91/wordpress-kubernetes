@@ -11,10 +11,10 @@ spec:
       labels:
         app: mysql
     spec:
-      #volumes:
-      #  - name: vol-mysql
-      #    persistentVolumeClaim:
-      #      claimName: vol-wordpress
+      volumes:
+        - name: vol-mysql
+          persistentVolumeClaim:
+            claimName: vol-wordpress
       containers:
         - name: mysql
           image: mysql:8.0
@@ -23,6 +23,6 @@ spec:
           envFrom:
             - secretRef:
                 name: mysql-secret
-      #    volumeMounts:
-      #      - mountPath: "/var/lib/mysql"
-      #        name: vol-mysql
+          volumeMounts:
+            - mountPath: "/var/lib/mysql"
+              name: vol-mysql
