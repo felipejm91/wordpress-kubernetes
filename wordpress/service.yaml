@@ -9,4 +9,5 @@ spec:
     - port: 80
       targetPort: 80
   #type: NodePort #para uso com cluster on-premise
-  type: LoadBalancer #para uso com cluster cloud
+  #type: LoadBalancer #para uso com cluster cloud
+  type: ClusterIP #Para uso com Ingress
