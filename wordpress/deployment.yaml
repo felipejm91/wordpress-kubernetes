@@ -17,9 +17,12 @@ spec:
           claimName: vol-wordpress
       containers:
       - name: wordpress
-        image: wordpress:6.1
+        image: wordpress:6.1.1-php8.1-apache
         ports:
           - containerPort: 80
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: "mysql-service"
         envFrom:
         - secretRef:
             name: secret-wordpress

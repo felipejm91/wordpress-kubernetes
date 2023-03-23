@@ -14,7 +14,7 @@ spec:
       volumes:
         - name: vol-mysql
           persistentVolumeClaim:
-            claimName: vol-wordpress
+            claimName: vol-mysql
       containers:
         - name: mysql
           image: mysql:8.0

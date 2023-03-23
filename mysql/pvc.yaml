@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: vol-wordpress
+  name: vol-mysql
 spec:
   accessModes:
     - ReadWriteOnce
